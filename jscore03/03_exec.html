@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 使用正则的exec()函数时，正则表达式后必须加g,否则会单方面循环查找出第一个符合正则的敏感词
+
+    var str = "老师说用小红 我的 朋友 是造句。小亮：小红是我的朋友。小然：朋友，小红是我的"
+    var reg = /小[\u4e00-\u9fa5]/g
+    var arr = str.match(reg)
+    console.log(arr)
+
+    do {
+      var arr = reg.exec(str)
+      if (arr != null) {
+        console.log(arr)
+      } else {
+        break;
+      }
+    } while (arr != null);
+  </script>
+</body>
+
+</html>

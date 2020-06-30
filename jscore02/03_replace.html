@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0;padding: 0;}
+  </style>
+</head>
+
+<body>
+  <h1>replace!</h1>
+  <h1 id="msg"></h1>
+  <script>
+    var str = "老师说用小红，我的，朋友造句。小亮说：小红是我的朋友。小然：朋友，小红是我的"
+    // var str = "you can you up ,no can no BB"
+    var arr = str.match(/小[\u4e00-\u9fa5]/g)
+    // var str1 = str.replace(/小[\u4e00-\u9fa5]/g, "神经病!")
+    var str1 = str.replace(/小[\u4e00-\u9fa5]/g, "马冬梅")
+
+    console.log(arr)
+
+    // if (arr != null) {
+    //   msg.innerHTML = `${str1},共修改了${arr.length}处`
+    // } else {
+    //   msg.innerHTML = `${str},没有敏感词`
+    // }
+
+    // console.log(`共修改了${arr!=null?arr.length:0}处`)
+
+    arr != null ? msg.innerHTML = `${str1},共修改了${arr.length}处` : msg.innerHTML = `${str},没有敏感词`
+
+  </script>
+
+</body>
+
+</html>

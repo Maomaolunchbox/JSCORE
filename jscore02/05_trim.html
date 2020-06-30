@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    var str = "  you  can  you  up   "
+    // 去头
+    function trim_left(str) {
+      return str.replace(/^\s+/, "")
+    }
+    // 去尾
+    function trim_right(str) {
+      return str.replace(/\s+$/, "")
+    }
+    // 去头去尾
+    function trim(str) {
+      return str.replace(/^\s+|\s+$/g, "")
+    }
+
+    console.log(trim_left(str))
+    console.log(trim_right(str))
+    console.log(trim(str))
+  </script>
+
+</body>
+
+</html>

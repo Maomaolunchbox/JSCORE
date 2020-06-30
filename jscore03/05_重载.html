@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // function pay_phone(){
+    //   console.log(`手机支付。。。`)
+    // }
+    // function pay_money(a){
+    //   console.log(`现金支付。。。`)
+    // }
+    // function pay_card(a,b){
+    //   console.log(`刷卡支付。。。`)
+    // }
+
+    // pay_phone()
+    // pay_money(100)
+    // pay_card("1234","abc")
+
+
+
+    // arguments   !!!!!
+    // 注意：arguments数据类型是类数组对象object
+
+    // 重载的实现；
+    //  1.定义函数时，不定义形参
+    //  2.函数在定义时，会自动生成一个arguments类数组对象(存在.length属性)，会自动收集函数调用时传入函数中的实参，从而实现重载！
+    //  3.可使用argument[下标]对实参值进行调用
+
+
+    // function pay() {
+    //   console.log(arguments, typeof arguments)
+    //   if (arguments.length == 0) {
+    //     console.log("手机支付...")
+    //   } else if (arguments.length == 1) {
+    //     console.log(`现金支付...,支付${arguments[0]}元`)
+    //   } else {
+    //     console.log(`刷卡支付...,从卡${arguments[0]},密码${arguments[1]}的卡上`)
+    //   }
+    // }
+
+    // pay()
+    // pay(100)
+    // pay("1234", "abc")
+
+
+
+
+
+    // 回调函数不占用内存空间
+    // 例如如下：
+    function a(x) {
+      return x.toUpperCase()
+    }
+    var str = "you can you up"
+    var str = str.replace(/\b[a-z]/ig, a)
+    console.log(str)
+
+    // 因为函数被变量a指向，所以在函数使用完之后得不到释放，所以占据着空间
+
+    // 正确方法是  使用回调函数
+    // 在调用使用完之后，因为没有被变量指向，得不到包保存，所以就会被释放
+    var str = "you can you up"
+    var str = str.replace(/\b[a-z]/ig, function (x) {
+      return x.toUpperCase()
+    })
+    console.log(str)
+
+    // var a={
+    //   name:"maomao",
+    //   age:12,
+    //   intr:function(){console.log("hhhhhhh")}
+    // }
+    // var b=a
+    // console.log(b)
+
+    // b.name="damao"
+    // console.log(b)
+    // console.log(a)
+  </script>
+  <script>
+    // 匿名函数自调
+    // 避免全局污染
+    // 直接会在全局创建变量，会一直存在，即便代码执行完，也会一直存在window全局变量中
+    // 如下即为错误做法：
+    // var start = new Date()
+    // alert(`页面加载完成,at:${start.toLocaleDateString()}`)
+    // var end = new Date()
+    // alert(`页面加载完成,at:${end.toLocaleDateString()}`)
+
+    // 正确做法：
+    (
+      function () {
+        var start = new Date()
+        alert(`页面加载完成,at:${start.toLocaleDateString()}`)
+        var end = new Date()
+        alert(`页面加载完成,at:${end.toLocaleDateString()}`)
+      }
+    )()
+
+    console.log(window.start)
+    console.log(window.end)
+  </script>
+
+</body>
+
+</html>

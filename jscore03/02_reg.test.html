@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+    var msg = prompt("请输入您的6位数密码")
+    var reg = /^\d{6}$/
+
+    // 使用正则的test()函数时，正则必须加 ^ $符号，限制与其匹配内容的长度，否则，只要被搜索内容中含有符合正则的内容，判断结果就会为true，不会是自己想要的结果
+    // test()默认不要求从头开始，只要内容符合有符合正则的片段即返回true
+    // 解决：^\d{4}$
+
+    if (reg.test(msg)) {
+      document.write(`<h1 style="color:green">密码格式通过</h1>`)
+    } else {
+      document.write(`<h1 style="color:red">密码格式错误</h1>`)
+    }
+  </script>
+
+</body>
+
+</html>

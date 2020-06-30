@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>indexof!</h1>
+
+  <!-- 请用户输入一条内容:<input type="text"> -->
+  <h1 id="d1"></h1>
+
+  <script>
+    var msg = prompt("请输入一条你想说的话！")
+
+    // if (msg.indexOf("我草") == -1) {
+    //   // d1.innerHTML="没找到"
+    //   document.write(`<h1 style="color:red">没找到!</h1>`)
+    // } else {
+    //   // d1.innerHTML="找到了"
+    //   document.write(`<h1 style="color:green">找到了！</h1>`)
+    // }
+    // console.log(msg.indexOf("我草"))
+
+
+    // if(msg.search(/([我卧窝]|wo)[草操槽艹]/i)==-1){
+    //   document.write(`<h1 style="color:green">没找到！无敏感词！</h1>`)
+    // }else{
+    //   document.write(`<h1 style="color:red">找到了!敏感词：${msg}</h1>`)
+    // }
+
+    // console.log(msg.search(/([我卧窝]|wo)[草操槽艹]/i))
+    var arr = msg.match(/([我卧窝]|wo)[草操槽艹]/i)
+    if (arr != null) {
+      document.write(`<h1 style="color:red">找到了!位置:${arr.index}敏感词:${arr[0]}</h1>`)
+    } else {
+      document.write(`<h1 style="color:green">没找到!</h1>`)
+    }
+  </script>
+
+</body>
+
+</html>
